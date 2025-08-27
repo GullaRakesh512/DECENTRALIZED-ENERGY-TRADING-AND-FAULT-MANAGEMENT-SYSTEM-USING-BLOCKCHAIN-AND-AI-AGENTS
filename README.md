@@ -1,18 +1,20 @@
+
+watch the video for better understanding (https://youtu.be/ZKnaKUDkE3c)
+
 Decentralized Energy Trading and Fault Management System
-watch the video (https://youtu.be/ZKnaKUDkE3c)
 1. Overview
 This project introduces a smart, decentralized system for local energy markets. It empowers homeowners with renewable energy sources, like solar panels, to sell their surplus electricity directly to their neighbors. This creates a peer-to-peer (P2P) energy trading network that is more efficient, transparent, and resilient than traditional, centralized power grids.
 
 The system is built on three core pillars: a secure blockchain-based marketplace for trading, an AI-powered fault management system for instant alerts, and an intelligent grid control agent to ensure the stability of the local power network. It effectively creates a self-regulating, community-driven energy ecosystem.
 
 2. Key Features
-Peer-to-Peer Energy Trading: A user-friendly web platform allows users to buy and sell energy directly. All transactions are securely recorded on the Ethereum blockchain, eliminating the need for a middleman.
+Peer-to-Peer Energy Trading: A user-friendly web platform allows users to buy and sell energy directly. All transactions are securely recorded on the Ethereum blockchain, eliminating the need for a middleman and ensuring a tamper-proof ledger of all trades.
 
-Fair Market Pricing: A Double Auction Mechanism is built into the system's smart contract. It matches the highest bids from buyers with the lowest offers from sellers to determine the fairest market price for everyone in real-time.
+Fair Market Pricing: A Double Auction Mechanism is built into the system's smart contract. It matches the highest bids from buyers with the lowest offers from sellers to determine the fairest market price for everyone in real-time, promoting competitive and equitable energy costs.
 
-Automated Fault Detection: An AI agent continuously monitors the electrical grid (a simulated IEEE 13-bus system). If a fault, like a power outage at a house, is detected, the system instantly reacts.
+Automated Fault Detection: An AI agent continuously monitors the electrical grid (a simulated IEEE 13-bus system). If a fault, like a power outage at a house, is detected, the system instantly reacts without needing human intervention.
 
-Instantaneous Alerts: Upon detecting a fault, the system uses n8n automation to send immediate Telegram alerts to both the substation operator (for repairs) and the affected homeowner. The homeowner's alert includes a direct link to the trading platform to buy backup power.
+Instantaneous Alerts: Upon detecting a fault, the system uses n8n automation to send immediate Telegram alerts to both the substation operator (for repairs) and the affected homeowner. The homeowner's alert includes a direct link to the trading platform to buy backup power, minimizing downtime.
 
 AI-Powered Grid Stability: A second AI agent monitors the energy trading activity. If a high volume of trades threatens to destabilize the grid's voltage, the agent automatically commands a simulated tap changer to adjust and maintain safe voltage levels, protecting the local infrastructure.
 
@@ -23,9 +25,9 @@ OpenDSS Power System: This is the simulation environment that models the physica
 
 Python AI Agents: These are the brains of the operation.
 
-Fault Detection Agent: Watches the grid for abnormalities.
+Fault Detection Agent: Watches the grid for abnormalities like voltage drops or current surges.
 
-Grid Control Agent: Watches the trading platform for energy imbalances.
+Grid Control Agent: Watches the trading platform for energy imbalances that could affect grid health.
 
 Blockchain DApp (Decentralized Application): This is the user-facing marketplace. Built with JavaScript and Ethers.js, it connects to the Ethereum blockchain and allows users to manage their trades using a crypto wallet like MetaMask. The rules of the market are enforced by a Solidity smart contract.
 
