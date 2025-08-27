@@ -1,0 +1,34 @@
+Clear
+
+// Define the Circuit
+New Circuit.IEEE13Bus basekV=12.47 pu=1.0 phases=3 bus1=sourcebus
+
+// Edit source
+Edit Vsource.Source bus1=sourcebus phases=3 basekV=12.47 pu=1.0 angle=0 freq=60
+
+// Define LineCode
+New LineCode.601 nphases=3 R1=0.001 R0=0.002 X1=0.01 X0=0.015 C1=3 C0=1.2 units=mi
+
+// ?? Connect sourcebus to 650 (previously missing!)
+New Line.line_source_650 bus1=sourcebus bus2=650 phases=3 LineCode=601 length=0.01 units=mi
+
+// Define other lines
+New Line.line650_632 bus1=650 bus2=632 phases=3 LineCode=601 length=0.05 units=mi
+New Line.line632_633 bus1=632 bus2=633 phases=1 LineCode=601 length=0.02 units=mi
+New Line.line632_634 bus1=632 bus2=634 phases=1 LineCode=601 length=0.02 units=mi
+
+// Loads
+New Load.house1 bus1=633.1 phases=1 kV=0.4 kW=5 kvar=2 model=1
+New Load.house2 bus1=634.1 phases=1 kV=0.4 kW=4 kvar=1.5 model=1
+New Load.house3 bus1=632.1 phases=1 kV=0.4 kW=3 kvar=1 model=1
+
+// Solar PVs
+New Generator.solar2 phases=1 bus1=634.1 kV=0.4 kW=3 kvar=0 model=1
+New Generator.solar3 phases=1 bus1=632.1 kV=0.4 kW=2 kvar=0 model=1
+
+// Solve
+Set controlmode=STATIC
+Solve
+
+// Show voltages
+Show voltages LN 
